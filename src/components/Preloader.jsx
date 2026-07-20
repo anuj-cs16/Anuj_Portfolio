@@ -39,8 +39,8 @@ const Preloader = ({ onFinish }) => {
       <div className="absolute inset-0 cyber-grid opacity-30 pointer-events-none" />
 
       {/* Cyber Ambient Glows */}
-      <div className="absolute top-1/3 left-1/3 w-80 h-80 cyber-ambient-cyan pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/3 w-80 h-80 cyber-ambient-purple pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 cyber-ambient-cyan" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 cyber-ambient-purple" />
 
       {/* Cyber Logo Core */}
       <div className="relative mb-8 flex items-center justify-center">

@@ -36,8 +36,8 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-[#050814] flex items-center justify-center p-4 relative font-sans overflow-hidden">
       {/* Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 cyber-ambient-cyan pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 cyber-ambient-purple pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-[500px] md:h-[500px] cyber-ambient-cyan" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-[500px] md:h-[500px] cyber-ambient-purple" />
 
       {/* Back to Home button */}
       <Link

@@ -26,13 +26,19 @@
   background-size: 40px 40px;
 }
 
-/* Radial Cyber Ambient Glows */
+/* Radial Cyber Ambient Glows - Smooth Gaussian Lights (No Card / Edge Boundaries) */
 .cyber-ambient-cyan {
-  background: radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, rgba(0, 212, 255, 0) 70%);
+  filter: blur(100px);
+  border-radius: 9999px;
+  pointer-events: none;
 }
 
 .cyber-ambient-purple {
-  background: radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 70%);
+  filter: blur(100px);
+  border-radius: 9999px;
+  pointer-events: none;
 }
 
 /* Glassmorphism Styling */

@@ -12,8 +12,8 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden px-4 md:px-12 lg:px-24">
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 cyber-ambient-cyan pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 cyber-ambient-purple pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-[500px] md:h-[500px] cyber-ambient-cyan -z-10" />
+      <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-72 h-72 md:w-[500px] md:h-[500px] cyber-ambient-purple -z-10" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column: Intro Text */}
