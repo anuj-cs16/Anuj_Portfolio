@@ -6,12 +6,15 @@ const {
   createProject,
   updateProject,
   deleteProject,
+  syncGitHub,
 } = require('../controllers/projectController');
 const { protect } = require('../middleware/authMiddleware');
 
 router.route('/')
   .get(getProjects)
   .post(protect, createProject);
+
+router.post('/github-sync', protect, syncGitHub);
 
 router.route('/:id')
   .get(getProjectById)

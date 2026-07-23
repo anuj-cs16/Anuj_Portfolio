@@ -26,6 +26,7 @@ const AdminDashboard = () => {
   const [projects, setProjects] = useState([]);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
 
   // Add / Edit Project Modal state
   const [showProjectModal, setShowProjectModal] = useState(false);
@@ -60,6 +61,33 @@ const AdminDashboard = () => {
       toast.error('Failed to load dashboard metrics');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSyncGitHub = async () => {
+    setSyncing(true);
+    const toastId = toast.loading('Syncing with GitHub...');
+    try {
+      const res = await API.post('/projects/github-sync');
+      if (res.data.success) {
+        toast.success(
+          `Sync complete! Found ${res.data.totalReposFound} repos, synced ${res.data.newProjectsSynced} new projects.`,
+          { id: toastId, duration: 5000 }
+        );
+        // Refresh project list to show the new synced projects
+        const projRes = await API.get('/projects');
+        setProjects(projRes.data);
+      } else {
+        toast.error(res.data.message || 'Sync failed', { id: toastId });
+      }
+    } catch (err) {
+      console.error('[GitHub Sync Frontend Error]', err);
+      toast.error(
+        err.response?.data?.message || err.message || 'Failed to sync with GitHub',
+        { id: toastId }
+      );
+    } finally {
+      setSyncing(false);
     }
   };
 
@@ -273,12 +301,27 @@ const AdminDashboard = () => {
           </div>
 
           {activeTab === 'projects' && (
-            <button
-              onClick={handleOpenAdd}
-              className="btn-neon-cyan px-5 py-2.5 rounded-xl text-xs font-mono font-bold flex items-center gap-2 cursor-pointer"
-            >
-              <FaPlus size={12} /> Add New Project
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleSyncGitHub}
+                disabled={syncing}
+                className="px-4 py-2.5 rounded-xl bg-slate-800/85 hover:bg-slate-700/85 border border-white/10 text-xs font-mono text-slate-300 hover:text-[#00d4ff] hover:border-[#00d4ff]/40 flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                title="Sync public GitHub repositories to portfolio"
+              >
+                {syncing ? (
+                  <FaSpinner className="animate-spin text-[#00d4ff]" size={12} />
+                ) : (
+                  <FaGithub size={13} className="text-[#a855f7]" />
+                )}
+                {syncing ? 'Syncing...' : 'Sync GitHub'}
+              </button>
+              <button
+                onClick={handleOpenAdd}
+                className="btn-neon-cyan px-5 py-2.5 rounded-xl text-xs font-mono font-bold flex items-center gap-2 cursor-pointer"
+              >
+                <FaPlus size={12} /> Add New Project
+              </button>
+            </div>
           )}
         </div>
 

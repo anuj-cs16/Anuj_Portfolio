@@ -1,5 +1,10 @@
 const Project = require('../models/Project');
 const { initialProjects } = require('../utils/seeder');
+const { syncGitHubRepos } = require('../utils/githubSync');
+
+// Throttle auto-sync to prevent GitHub rate-limiting (1 hour cooldown)
+let lastSyncTime = 0;
+const AUTO_SYNC_COOLDOWN = 60 * 60 * 1000;
 
 // Memory cache fallback in case MongoDB is unavailable
 let memoryProjects = [...initialProjects.map((p, idx) => ({
@@ -12,6 +17,15 @@ let memoryProjects = [...initialProjects.map((p, idx) => ({
 // @route   GET /api/projects
 // @access  Public
 const getProjects = async (req, res) => {
+  // Trigger background auto-sync if cooldown passed
+  const now = Date.now();
+  if (now - lastSyncTime > AUTO_SYNC_COOLDOWN) {
+    lastSyncTime = now;
+    syncGitHubRepos().catch((err) =>
+      console.warn('[Project Controller] Background GitHub auto-sync failed:', err.message)
+    );
+  }
+
   try {
     const projects = await Project.find().sort({ createdAt: -1 });
     if (projects.length === 0) {
@@ -166,10 +180,34 @@ const deleteProject = async (req, res) => {
   }
 };
 
+// @desc    Synchronize projects from GitHub
+// @route   POST /api/projects/github-sync
+// @access  Private (Admin)
+const syncGitHub = async (req, res) => {
+  try {
+    const result = await syncGitHubRepos();
+    // Reset cooldown since we successfully synced
+    lastSyncTime = Date.now();
+    res.json({
+      success: true,
+      message: 'GitHub synchronization completed successfully',
+      ...result,
+    });
+  } catch (error) {
+    console.error('[Project Controller] Manual GitHub sync failed:', error);
+    res.status(500).json({
+      success: false,
+      message: 'GitHub synchronization failed',
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getProjects,
   getProjectById,
   createProject,
   updateProject,
   deleteProject,
+  syncGitHub,
 };
