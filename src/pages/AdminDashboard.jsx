@@ -508,7 +508,7 @@ const AdminDashboard = () => {
                   value={projectForm.title}
                   onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })}
                   required
-                  placeholder="e.g. Flashbill POS"
+                  placeholder="e.g. Library Management System"
                   className="w-full px-3 py-2.5 rounded-xl bg-[#050814] border border-white/10 text-slate-100 text-sm focus:border-[#00d4ff] focus:outline-none"
                 />
               </div>

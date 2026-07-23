@@ -4,16 +4,6 @@ const Project = require('../models/Project');
 
 const initialProjects = [
   {
-    title: 'Flashbill POS',
-    description: 'Offline-first restaurant billing & management software built for fast order processing, table management, invoice printing, and real-time sales reporting. Used by live paying clients.',
-    image: '/flashbill-pos.png',
-    techStack: ['Electron', 'React', 'Node.js', 'SQLite', 'Express', 'Tailwind CSS'],
-    category: 'Full-Stack',
-    githubLink: 'https://github.com/anuj-cs16/flashbill-pos',
-    liveLink: 'https://forgeweb.in',
-    featured: true,
-  },
-  {
     title: 'Library Management System',
     description: 'Desktop GUI application for managing library inventory, book issuing, member tracking, fine calculations, and database backups built with Python Tkinter and MySQL backend.',
     image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop',

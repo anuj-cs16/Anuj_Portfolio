@@ -18,8 +18,8 @@ const About = () => {
     },
     {
       icon: FaCheckCircle,
-      title: 'Live Product Lead',
-      detail: 'Architected Flashbill POS — Offline-first restaurant billing application',
+      title: 'Hackathon Champion',
+      detail: 'Winner of 5 hackathons, including 1 at the national level',
       color: 'text-emerald-400',
     },
     {
@@ -61,7 +61,7 @@ const About = () => {
             </h3>
 
             <p className="text-slate-300 text-base md:text-lg leading-relaxed mb-6">
-              Third-year B.Tech CSE student with hands-on experience building and shipping real-world software, including a live POS product used by paying clients. Seeking a full-time role or internship in software development to apply strong fundamentals in Python, MERN stack, and AI-assisted engineering.
+              Third-year B.Tech CSE student with hands-on experience building and shipping real-world software. Seeking a full-time role or internship in software development to apply strong fundamentals in Python, MERN stack, and AI-assisted engineering.
             </p>
 
             <div className="p-4 rounded-xl bg-[#050814]/80 border border-[#00d4ff]/30 text-sm font-mono text-slate-300 leading-relaxed">

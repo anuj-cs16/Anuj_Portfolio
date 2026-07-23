@@ -59,7 +59,7 @@ const Hero = () => {
 
           {/* Description */}
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mb-8">
-            I create real-world software solutions — from live POS systems to AI-assisted web apps. Passionate about clean code and shipping products that matter.
+            I create real-world software solutions — from custom web portals to AI-assisted web apps. Passionate about clean code and shipping products that matter.
           </p>
 
           {/* CTA Buttons */}

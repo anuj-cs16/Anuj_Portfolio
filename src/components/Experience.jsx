@@ -11,12 +11,12 @@ const Experience = () => {
       period: 'Feb 2024 – Present',
       description: 'Delivered web development and software automation solutions tailored for local SMBs and client businesses.',
       highlights: [
-        'Built & launched Flashbill POS — an offline-first restaurant billing application serving active paying clients.',
+        'Developed custom full-stack solutions, client portfolios, and relational database systems.',
         'Serviced 6 business clients end-to-end with high satisfaction and zero downtime.',
         'Developed custom WhatsApp automation tools & lead generation web applications.',
         'Managed client requirement gathering, full-stack architectural design, and deployment pipelines.',
       ],
-      tags: ['React', 'Node.js', 'Electron', 'SQLite', 'WhatsApp API', 'Express'],
+      tags: ['React', 'Node.js', 'MongoDB', 'MySQL', 'WhatsApp API', 'Express'],
     },
   ];
 

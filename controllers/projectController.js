@@ -9,7 +9,6 @@ const AUTO_SYNC_COOLDOWN = 60 * 60 * 1000;
 // Memory cache fallback in case MongoDB is unavailable
 let memoryProjects = [...initialProjects.map((p, idx) => ({
   ...p,
-  image: p.title === 'Flashbill POS' ? '/flashbill-pos.png' : p.image,
   _id: `fallback-${idx + 1}`
 }))];
 
