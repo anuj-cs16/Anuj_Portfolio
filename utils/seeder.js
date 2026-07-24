@@ -26,7 +26,7 @@ const initialProjects = [
   {
     title: 'Employee Management App',
     description: 'Modern single-page web app for tracking employee profiles, department roles, payroll breakdown, attendance status, and performance reports with local storage persistence.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
     techStack: ['JavaScript', 'HTML5', 'Tailwind CSS', 'LocalStorage'],
     category: 'Web Apps',
     githubLink: 'https://github.com/anuj-cs16/employee-management',
@@ -36,7 +36,7 @@ const initialProjects = [
   {
     title: 'ERP Portal',
     description: 'Comprehensive enterprise resource planning portal featuring user role RBAC, attendance tracking, inventory management, student metrics, and PDF invoice generation.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop',
     techStack: ['Node.js', 'Express', 'EJS', 'MongoDB', 'Bootstrap'],
     category: 'Full-Stack',
     githubLink: 'https://github.com/anuj-cs16/erp-portal',

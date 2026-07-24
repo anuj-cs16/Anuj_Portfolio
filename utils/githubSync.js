@@ -115,6 +115,35 @@ const getCategoryImage = (category) => {
 };
 
 /**
+ * Dynamically selects project cover images based on title keywords.
+ */
+const getProjectImage = (title, category) => {
+  const t = (title || '').toLowerCase();
+  if (t.includes('blood') || t.includes('donation') || t.includes('health') || t.includes('medical')) {
+    return 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop';
+  }
+  if (t.includes('pokemon') || t.includes('pokimon') || t.includes('game') || t.includes('rpg') || t.includes('arcade')) {
+    return 'https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?q=80&w=800&auto=format&fit=crop';
+  }
+  if (t.includes('library') || t.includes('book') || t.includes('shelf')) {
+    return 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop';
+  }
+  if (t.includes('employee') || t.includes('payroll') || t.includes('attendance') || t.includes('hr')) {
+    return 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop';
+  }
+  if (t.includes('erp') || t.includes('portal') || t.includes('enterprise') || t.includes('billing') || t.includes('dashboard')) {
+    return 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop';
+  }
+  if (t.includes('portfolio') || t.includes('personal') || t.includes('website') || t.includes('cv')) {
+    return 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop';
+  }
+  if (t.includes('python') || t.includes('script') || t.includes('algorithm') || t.includes('utilities')) {
+    return 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop';
+  }
+  return getCategoryImage(category);
+};
+
+/**
  * Main function to synchronize GitHub repositories to MongoDB.
  */
 const syncGitHubRepos = async () => {
@@ -142,9 +171,11 @@ const syncGitHubRepos = async () => {
     throw new Error('Invalid response format from GitHub API');
   }
 
-  // Filter out forks
-  const originalRepos = repos.filter((repo) => !repo.fork);
-  console.log(`[GitHub Sync] Found ${originalRepos.length} original public repositories.`);
+  // Filter out forks and portfolio repositories
+  const originalRepos = repos.filter(
+    (repo) => !repo.fork && !repo.name.toLowerCase().includes('portfolio')
+  );
+  console.log(`[GitHub Sync] Found ${originalRepos.length} original public repositories (excluding portfolio).`);
 
   // Get existing projects in MongoDB to avoid duplicates
   let existingLinks = new Set();
@@ -167,7 +198,7 @@ const syncGitHubRepos = async () => {
 
     const title = formatTitle(repo.name);
     const category = determineCategory(repo);
-    const image = getCategoryImage(category);
+    const image = getProjectImage(title, category);
 
     // Build tech stack list from primary language and topics
     const rawTech = [];

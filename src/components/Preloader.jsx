@@ -1,10 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const Preloader = ({ onFinish }) => {
   const [progress, setProgress] = useState(0);
+  const audioRef = useRef(null);
 
   useEffect(() => {
+    // Play powerful car startup sound automatically on mount
+    const audio = new Audio('/car-start.mp3');
+    audio.volume = 0.3; // Moderately soft, clear volume level
+    audioRef.current = audio;
+
+    const playSound = () => {
+      audio.play().catch((err) => {
+        console.warn('[Audio] Autoplay blocked, waiting for user click/touch to play:', err.message);
+      });
+    };
+
+    // Attempt to play immediately
+    playSound();
+
+    // Fallback listeners for browser autoplay policies (bound to window)
+    window.addEventListener('click', playSound);
+    window.addEventListener('touchstart', playSound);
+
+    // Disable scrolling when preloader is active
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -16,9 +39,31 @@ const Preloader = ({ onFinish }) => {
         }
         return prev + 1;
       });
-    }, 20);
+    }, 30); // 30ms * 100 = 3 seconds loading duration
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('click', playSound);
+      window.removeEventListener('touchstart', playSound);
+
+      // Stop and fade out the audio immediately when loading page finishes
+      if (audioRef.current) {
+        const audio = audioRef.current;
+        let vol = audio.volume;
+        const fadeInterval = setInterval(() => {
+          if (vol > 0.01) {
+            vol -= 0.02;
+            if (vol < 0) vol = 0;
+            audio.volume = vol;
+          } else {
+            clearInterval(fadeInterval);
+            audio.pause();
+            audio.currentTime = 0;
+          }
+        }, 15);
+      }
+    };
   }, [onFinish]);
 
   const getStatusText = (val) => {
