@@ -8,21 +8,13 @@ const Preloader = ({ onFinish }) => {
   useEffect(() => {
     // Play powerful car startup sound automatically on mount
     const audio = new Audio('/car-start.mp3');
-    audio.volume = 0.3; // Moderately soft, clear volume level
+    audio.volume = 0.5; // Clear, rich volume level (50%)
     audioRef.current = audio;
 
-    const playSound = () => {
-      audio.play().catch((err) => {
-        console.warn('[Audio] Autoplay blocked, waiting for user click/touch to play:', err.message);
-      });
-    };
-
-    // Attempt to play immediately
-    playSound();
-
-    // Fallback listeners for browser autoplay policies (bound to window)
-    window.addEventListener('click', playSound);
-    window.addEventListener('touchstart', playSound);
+    // Attempt to play immediately on load
+    audio.play().catch((err) => {
+      console.warn('[Audio] Autoplay blocked by browser. Please enable site sound permission to play on load:', err.message);
+    });
 
     // Disable scrolling when preloader is active
     const originalOverflow = document.body.style.overflow;
@@ -44,8 +36,6 @@ const Preloader = ({ onFinish }) => {
     return () => {
       clearInterval(timer);
       document.body.style.overflow = originalOverflow;
-      window.removeEventListener('click', playSound);
-      window.removeEventListener('touchstart', playSound);
 
       // Stop and fade out the audio immediately when loading page finishes
       if (audioRef.current) {
