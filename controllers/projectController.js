@@ -16,15 +16,6 @@ let memoryProjects = [...initialProjects.map((p, idx) => ({
 // @route   GET /api/projects
 // @access  Public
 const getProjects = async (req, res) => {
-  // Trigger background auto-sync if cooldown passed
-  const now = Date.now();
-  if (now - lastSyncTime > AUTO_SYNC_COOLDOWN) {
-    lastSyncTime = now;
-    syncGitHubRepos().catch((err) =>
-      console.warn('[Project Controller] Background GitHub auto-sync failed:', err.message)
-    );
-  }
-
   try {
     const projects = await Project.find().sort({ createdAt: -1 });
     if (projects.length === 0) {

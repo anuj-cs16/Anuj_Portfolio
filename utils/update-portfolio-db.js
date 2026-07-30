@@ -22,7 +22,10 @@ const getProjectImage = (title, category) => {
   if (t.includes('blood') || t.includes('donation') || t.includes('health') || t.includes('medical')) {
     return 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop';
   }
-  if (t.includes('pokemon') || t.includes('pokimon') || t.includes('game') || t.includes('rpg') || t.includes('arcade')) {
+  if (t.includes('pokemon') || t.includes('pokimon') || t.includes('poké')) {
+    return '/pokemon-journey.png';
+  }
+  if (t.includes('game') || t.includes('rpg') || t.includes('arcade')) {
     return 'https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?q=80&w=800&auto=format&fit=crop';
   }
   if (t.includes('library') || t.includes('book') || t.includes('shelf')) {

@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const Project = require('../models/Project');
@@ -16,11 +17,11 @@ const initialProjects = [
   {
     title: 'Pokémon-Journey',
     description: 'Interactive JavaScript-driven Pokémon browser RPG featuring animated tile movement, wild creature encounters, turn-based battle mechanics, and sound effects.',
-    image: 'https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?q=80&w=800&auto=format&fit=crop',
+    image: '/pokemon-journey.png',
     techStack: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'Web Audio API'],
     category: 'Games',
-    githubLink: 'https://github.com/anuj-cs16/pokemon-journey',
-    liveLink: 'https://anuj-cs16.github.io/pokemon-journey',
+    githubLink: 'https://github.com/anuj-cs16/Pokimon-Journey',
+    liveLink: 'https://anuj-cs16.github.io/Pokimon-Journey',
     featured: true,
   },
   {
@@ -29,7 +30,7 @@ const initialProjects = [
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
     techStack: ['JavaScript', 'HTML5', 'Tailwind CSS', 'LocalStorage'],
     category: 'Web Apps',
-    githubLink: 'https://github.com/anuj-cs16/employee-management',
+    githubLink: 'https://github.com/anuj-cs16/Employee_management',
     liveLink: '',
     featured: false,
   },
@@ -39,7 +40,7 @@ const initialProjects = [
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop',
     techStack: ['Node.js', 'Express', 'EJS', 'MongoDB', 'Bootstrap'],
     category: 'Full-Stack',
-    githubLink: 'https://github.com/anuj-cs16/erp-portal',
+    githubLink: 'https://github.com/anuj-cs16/ERP_Portal-main',
     liveLink: '',
     featured: true,
   },
@@ -56,7 +57,17 @@ const initialProjects = [
 ];
 
 const seedData = async (force = false) => {
+  let isLocalConn = false;
   try {
+    if (mongoose.connection.readyState === 0) {
+      const dotenv = require('dotenv');
+      const path = require('path');
+      dotenv.config({ path: path.join(__dirname, '../.env') });
+      const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/anuj_portfolio';
+      await mongoose.connect(uri);
+      isLocalConn = true;
+    }
+
     const projectCount = await Project.countDocuments();
     if (projectCount === 0 || force) {
       if (force) await Project.deleteMany({});
@@ -80,8 +91,18 @@ const seedData = async (force = false) => {
       });
       console.log(`[Database Seeder] Default Admin user created (${adminEmail}).`);
     }
+
+    if (isLocalConn) {
+      await mongoose.disconnect();
+      console.log('[Database Seeder] Disconnected from database.');
+    }
   } catch (error) {
     console.error('[Database Seeder Warning] Seeding failed or skipped:', error.message);
+    if (isLocalConn) {
+      try {
+        await mongoose.disconnect();
+      } catch (_) {}
+    }
   }
 };
 

@@ -3,15 +3,20 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import CustomCursor from './components/CustomCursor';
-import Preloader from './components/Preloader';
+import IntroSequence from './components/intro/IntroSequence';
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   return (
     <>
-      {/* Preloader Animation */}
-      {loading && <Preloader onFinish={() => setLoading(false)} />}
+      {/* Cinematic Intro Sequence */}
+      {loading && (
+        <IntroSequence 
+          onComplete={() => setLoading(false)} 
+          enableSkip={false} // Set to true to skip on repeat visits
+        />
+      )}
 
       {/* Custom Cyber Glowing Cursor */}
       <CustomCursor />
