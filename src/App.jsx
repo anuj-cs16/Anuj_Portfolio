@@ -14,7 +14,6 @@ function App() {
       {loading && (
         <IntroSequence 
           onComplete={() => setLoading(false)} 
-          enableSkip={false} // Set to true to skip on repeat visits
         />
       )}
 

@@ -54,6 +54,16 @@ const initialProjects = [
     liveLink: '',
     featured: false,
   },
+  {
+    title: 'URL Shortener',
+    description: 'Secure, high-performance link shortening service featuring a custom alias engine, real-time redirection click tracking, visitor analytics (referrer/browser profiles), and automated QR code generation.',
+    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800&auto=format&fit=crop',
+    techStack: ['Node.js', 'Express', 'React', 'MongoDB', 'Tailwind CSS'],
+    category: 'Full-Stack',
+    githubLink: 'https://github.com/anuj-cs16/url-shortener',
+    liveLink: '',
+    featured: true,
+  },
 ];
 
 const seedData = async (force = false) => {
