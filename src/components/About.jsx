@@ -19,7 +19,7 @@ const About = () => {
     {
       icon: FaCheckCircle,
       title: 'Hackathon Champion',
-      detail: 'Winner of 5 hackathons, including 1 at the national level',
+      detail: 'Winner of 10 hackathons (15+ participated), including 1 at the national level',
       color: 'text-emerald-400',
     },
     {

@@ -89,7 +89,7 @@ const Hero = () => {
             </div>
             <div>
               <span className="text-2xl sm:text-3xl font-bold font-poppins text-[#a855f7] block">
-                5x
+                10x
               </span>
               <span className="text-xs text-slate-400 font-mono">Hackathon Winner</span>
             </div>

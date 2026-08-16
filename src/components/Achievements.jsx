@@ -5,9 +5,9 @@ import { FaTrophy, FaMedal, FaBullseye, FaAward, FaStar } from 'react-icons/fa';
 const Achievements = () => {
   const achievements = [
     {
-      title: 'Winner of 5 Hackathons',
-      subtitle: 'Includes 1 National Level Victory',
-      description: 'Secured 1st place in 5 competitive hackathons, prototyping full-stack software solutions under strict time constraints.',
+      title: 'Winner of 10 Hackathons',
+      subtitle: 'Includes 1 National Level Victory (15+ Participated)',
+      description: 'Secured 1st place in 10 competitive hackathons out of 15+ participated, prototyping full-stack software solutions under strict time constraints.',
       icon: FaTrophy,
       glowColor: 'hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:border-amber-400/60',
       badgeColor: 'bg-amber-500/10 border-amber-500/40 text-amber-400',
