@@ -10,39 +10,43 @@ const Skills = () => {
       skills: [
         { name: 'Python', level: 100 },
         { name: 'JavaScript (ES6+)', level: 100 },
+        { name: 'Core Java', level: 90 },
       ],
     },
     {
-      category: 'Frontend Development',
+      category: 'Frontend & Desktop',
       icon: FaDesktop,
       skills: [
-        { name: 'HTML5', level: 100 },
-        { name: 'CSS3', level: 100 },
-        { name: 'React.js', level: 100 },
+        { name: 'React.js / Next.js', level: 95 },
         { name: 'Tailwind CSS', level: 100 },
+        { name: 'HTML5 & CSS3', level: 100 },
+        { name: 'Tauri v2', level: 85 },
       ],
     },
     {
       category: 'Backend Architecture',
       icon: FaServer,
       skills: [
-        { name: 'Node.js', level: 75 },
-        { name: 'Express.js', level: 75 },
+        { name: 'Node.js & Express', level: 85 },
+        { name: 'FastAPI / Python', level: 85 },
+        { name: 'RESTful APIs & Auth', level: 90 },
       ],
     },
     {
       category: 'Databases & Storage',
       icon: FaDatabase,
       skills: [
-        { name: 'MongoDB', level: 75 },
+        { name: 'MongoDB', level: 85 },
         { name: 'MySQL', level: 85 },
+        { name: 'SQLite & Vector DBs', level: 80 },
       ],
     },
     {
       category: 'AI-Assisted Engineering',
       icon: FaRobot,
       skills: [
-        { name: 'Antigravity / Claude Opus 4.8 / Emergent AI', level: 100 },
+        { name: 'Ollama & Local LLMs', level: 95 },
+        { name: 'Antigravity / Claude Opus / Agentic Workflows', level: 100 },
       ],
     },
   ];

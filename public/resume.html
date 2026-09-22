@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anuj Dubey - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+    @page {
+      size: letter;
+      margin: 0.45in 0.55in;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+      font-size: 10pt;
+      line-height: 1.35;
+      color: #111;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 10pt;
+      padding-bottom: 6pt;
+      border-bottom: 1.5pt solid #222;
+    }
+
+    .name {
+      font-size: 23pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #000;
+      text-transform: uppercase;
+      margin-bottom: 2pt;
+    }
+
+    .tagline {
+      font-size: 10pt;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 4pt;
+      font-style: italic;
+    }
+
+    .contact-info {
+      font-size: 9.5pt;
+      color: #444;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12pt;
+    }
+
+    .contact-info a {
+      color: #111;
+      text-decoration: none;
+      border-bottom: 0.5px dotted #666;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 9pt;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #000;
+      border-bottom: 0.8pt solid #333;
+      padding-bottom: 1.5pt;
+      margin-bottom: 5pt;
+    }
+
+    /* Objective */
+    .objective-text {
+      font-size: 9.5pt;
+      color: #222;
+      text-align: justify;
+      line-height: 1.35;
+    }
+
+    /* Experience & Education Entries */
+    .entry {
+      margin-bottom: 6pt;
+      page-break-inside: avoid;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .entry-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .entry-date {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #444;
+      font-style: italic;
+    }
+
+    .entry-subtitle {
+      font-size: 9pt;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 2pt;
+    }
+
+    .entry ul, .project ul, .cert-list, .achieve-list {
+      margin-left: 14pt;
+      margin-top: 2pt;
+    }
+
+    .entry ul li, .project ul li, .cert-list li, .achieve-list li {
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 1.5pt;
+      line-height: 1.35;
+    }
+
+    /* Projects */
+    .project {
+      margin-bottom: 5pt;
+      page-break-inside: avoid;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .project-tech {
+      font-size: 8.5pt;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      margin-top: 2pt;
+    }
+
+    .skill-row {
+      font-size: 9.5pt;
+      margin-bottom: 1.5pt;
+      line-height: 1.35;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: #111;
+      display: inline-block;
+      min-width: 140pt;
+    }
+
+    .skill-value {
+      color: #222;
+    }
+
+    /* Education */
+    .edu-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .edu-subtitle {
+      font-size: 9.5pt;
+      color: #333;
+      font-style: italic;
+    }
+
+    a {
+      color: #111;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="name">Anuj Dubey</div>
+      <div class="tagline">B.Tech CSE Student | Forward Deployed Engineer, Forge Web | Full-Stack Software Developer</div>
+      <div class="contact-info">
+        <span>Faridabad, Haryana, India</span>
+        <span>•</span>
+        <a href="mailto:anujdubey162005@gmail.com">anujdubey162005@gmail.com</a>
+        <span>•</span>
+        <a href="https://linkedin.com/in/anuj-dubey-a41767280" target="_blank">linkedin.com/in/anuj-dubey-a41767280</a>
+        <span>•</span>
+        <a href="https://github.com/anuj-cs16" target="_blank">github.com/anuj-cs16</a>
+      </div>
+    </div>
+
+    <!-- CAREER OBJECTIVE -->
+    <div class="section">
+      <div class="section-title">Career Objective</div>
+      <p class="objective-text">
+        Third-year B.Tech CSE student with proven hands-on experience building and shipping production web systems, desktop applications, and autonomous AI-assisted tools. Seeking a software development engineer role or internship to leverage strong fundamentals in MERN stack, Python, algorithmic engineering, and agentic workflows.
+      </p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Forward Deployed Engineer — Forge Web</span>
+          <span class="entry-date">Feb 2024 — Present</span>
+        </div>
+        <div class="entry-subtitle">Web Development & Automation Business, Faridabad, Haryana</div>
+        <ul>
+          <li>Embedded directly on-site with 6+ business clients to gather technical requirements, architect custom MERN stack solutions, and execute production launches with zero downtime.</li>
+          <li>Engineered custom WhatsApp API automation systems and lead generation web portals, significantly increasing client operational throughput and user conversion.</li>
+          <li>Managed end-to-end SDLC — from rapid prototyping and relational schema design to cloud deployment pipelines and live client support.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Full-Stack Web Developer — Freelance & Client Servicing</span>
+          <span class="entry-date">2023 — Present</span>
+        </div>
+        <div class="entry-subtitle">Remote / Hybrid</div>
+        <ul>
+          <li>Developed end-to-end full-stack applications with React, Node.js, Express, and MongoDB for client organizations.</li>
+          <li>Built automated email notification triggers, RESTful APIs, and secure payment integrations.</li>
+          <li>Optimized site rendering speed, database queries, and responsiveness for seamless user experience.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">NEXUS — Autonomous Local-First AI Software Engineer</span>
+          <span class="project-tech">Tauri v2, Next.js 15, FastAPI, Python, Ollama, SQLite-vec, Docker</span>
+        </div>
+        <ul>
+          <li>Architected an autonomous, local-first AI software engineer desktop peer that executes planning, AST parsing, test execution, Docker sandboxing, and code review directly on workstations.</li>
+          <li>Integrated Ollama local LLMs (Qwen 2.5 Coder, Llama 3.3) with async DAG workflow orchestration and vector search.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">URL Shortener & Analytics Platform</span>
+          <span class="project-tech">Node.js, Express, React, MongoDB, Tailwind CSS</span>
+        </div>
+        <ul>
+          <li>Engineered a link shortening platform featuring custom alias routing, real-time redirection click analytics (referrer/device breakdowns), and automated QR code generation.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Blood-Donation Camp Management System</span>
+          <span class="project-tech">React, Node.js, Express, MongoDB, Tailwind CSS</span>
+        </div>
+        <ul>
+          <li>Built a full-stack platform for organizing blood donation drives, managing donor registrations, camp scheduling, and real-time inventory coordination.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Pokémon-Journey</span>
+          <span class="project-tech">JavaScript, HTML5 Canvas, Web Audio API, CSS3</span>
+        </div>
+        <ul>
+          <li>Created an interactive browser RPG featuring animated tile movement, wild creature encounters, turn-based battle mechanics, and dynamic sound effects.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">ERP Portal</span>
+          <span class="project-tech">Node.js, Express, EJS, MongoDB, Bootstrap</span>
+        </div>
+        <ul>
+          <li>Built an enterprise resource planning portal implementing Role-Based Access Control (RBAC), attendance logs, inventory management, student metrics, and PDF invoice generation.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Employee Management App</span>
+          <span class="project-tech">JavaScript, HTML5, Tailwind CSS, LocalStorage</span>
+        </div>
+        <ul>
+          <li>Single-page application for tracking employee profiles, departmental hierarchies, payroll breakdown, attendance status, and performance reports.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Library Management System</span>
+          <span class="project-tech">Python, Tkinter, MySQL, Pillow</span>
+        </div>
+        <ul>
+          <li>Desktop GUI application for managing library inventory, book issuing/returns, member tracking, fine calculations, and database backups.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Python Course & Automation Suite</span>
+          <span class="project-tech">Python, OOP, Data Structures, Automation</span>
+        </div>
+        <ul>
+          <li>Comprehensive repository of 50+ modular Python algorithms, data structures, automation scripts, scrapers, and GUI utility tools.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-row"><span class="skill-label">Programming Languages:</span> <span class="skill-value">Python, JavaScript, Core Java, SQL, C/C++</span></div>
+        <div class="skill-row"><span class="skill-label">Web & Frontend:</span> <span class="skill-value">React, Next.js, HTML5, CSS3, Tailwind CSS, EJS, Bootstrap</span></div>
+        <div class="skill-row"><span class="skill-label">Backend & APIs:</span> <span class="skill-value">Node.js, Express.js, FastAPI, RESTful APIs, JWT Authentication</span></div>
+        <div class="skill-row"><span class="skill-label">Databases:</span> <span class="skill-value">MongoDB, MySQL, SQLite, Vector Databases (sqlite-vec)</span></div>
+        <div class="skill-row"><span class="skill-label">Developer Tools:</span> <span class="skill-value">Git, GitHub, Docker, Tauri v2, Postman, Linux/Bash, VS Code</span></div>
+        <div class="skill-row"><span class="skill-label">AI & Engineering:</span> <span class="skill-value">Ollama, FastEmbed, Antigravity, Claude Opus, Prompt Engineering, Agentic Workflows</span></div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <ul class="cert-list">
+        <li><strong>Core Java (8-Week Training)</strong> — Internshala Trainings; covered Java fundamentals, OOP, database handling, GUI programming, and Java + AI modules (2025).</li>
+      </ul>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="section">
+      <div class="section-title">Achievements</div>
+      <ul class="achieve-list">
+        <li><strong>Winner of 10 Hackathons</strong> (15+ participated), including 1 at the national level.</li>
+        <li><strong>Winner, Smart India Hackathon (SIH)</strong> — Internal University Round.</li>
+        <li><strong>Hackathon Coordinator</strong> — Organized university-wide technical hackathons, managing logistics, problem statements, and mentoring participants.</li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="edu-title">Aravali College of Engineering and Management, Faridabad, Haryana</span>
+          <span class="entry-date">2022 — 2026</span>
+        </div>
+        <div class="edu-subtitle">Bachelor of Technology (B.Tech), Computer Science & Engineering — 3rd Year Completed</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

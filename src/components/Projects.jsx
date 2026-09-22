@@ -4,9 +4,100 @@ import { FaGithub, FaExternalLinkAlt, FaEye, FaSpinner, FaCode } from 'react-ico
 import API from '../utils/api';
 import ProjectModal from './ProjectModal';
 
+const fallbackProjects = [
+  {
+    _id: '1',
+    title: 'NEXUS — Autonomous AI Engineer',
+    description: 'Autonomous, local-first AI software engineer desktop peer executing planning, AST parsing, automated test runs, Docker sandboxing, and code review with Ollama models.',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+    techStack: ['Tauri v2', 'Next.js 15', 'FastAPI', 'Python', 'Ollama', 'SQLite-vec', 'Docker'],
+    category: 'Full-Stack',
+    githubLink: 'https://github.com/anuj-cs16/NEXUS',
+    liveLink: '',
+    featured: true,
+  },
+  {
+    _id: '2',
+    title: 'URL Shortener & Analytics',
+    description: 'Secure link shortening platform featuring custom alias engine, real-time redirection click analytics (referrer/device profile tracking), and automated QR code generation.',
+    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800&auto=format&fit=crop',
+    techStack: ['Node.js', 'Express', 'React', 'MongoDB', 'Tailwind CSS'],
+    category: 'Full-Stack',
+    githubLink: 'https://github.com/anuj-cs16/URL-Shortener',
+    liveLink: '',
+    featured: true,
+  },
+  {
+    _id: '3',
+    title: 'Blood-Donation Camp System',
+    description: 'Full-stack platform for organizing blood donation drives, enabling donor registrations, camp scheduling, and real-time inventory and volunteer coordination.',
+    image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop',
+    techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    category: 'Full-Stack',
+    githubLink: 'https://github.com/anuj-cs16/Blood_Donation',
+    liveLink: '',
+    featured: true,
+  },
+  {
+    _id: '4',
+    title: 'Pokémon-Journey',
+    description: 'Interactive JavaScript-driven Pokémon browser RPG featuring animated tile movement, wild creature encounters, turn-based battle mechanics, and sound effects.',
+    image: '/pokemon-journey.png',
+    techStack: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'Web Audio API'],
+    category: 'Games',
+    githubLink: 'https://github.com/anuj-cs16/Pokimon-Journey',
+    liveLink: 'https://anuj-cs16.github.io/Pokimon-Journey',
+    featured: true,
+  },
+  {
+    _id: '5',
+    title: 'ERP Portal',
+    description: 'Comprehensive enterprise resource planning portal featuring user role RBAC, attendance tracking, inventory management, student metrics, and PDF invoice generation.',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop',
+    techStack: ['Node.js', 'Express', 'EJS', 'MongoDB', 'Bootstrap'],
+    category: 'Full-Stack',
+    githubLink: 'https://github.com/anuj-cs16/ERP_Portal-main',
+    liveLink: '',
+    featured: true,
+  },
+  {
+    _id: '6',
+    title: 'Employee Management App',
+    description: 'Modern single-page web app for tracking employee profiles, department roles, payroll breakdown, attendance status, and performance reports with local storage persistence.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
+    techStack: ['JavaScript', 'HTML5', 'Tailwind CSS', 'LocalStorage'],
+    category: 'Web Apps',
+    githubLink: 'https://github.com/anuj-cs16/Employee_management',
+    liveLink: '',
+    featured: false,
+  },
+  {
+    _id: '7',
+    title: 'Library Management System',
+    description: 'Desktop GUI application for managing library inventory, book issuing, member tracking, fine calculations, and database backups built with Python Tkinter and MySQL backend.',
+    image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop',
+    techStack: ['Python', 'Tkinter', 'MySQL', 'Pillow'],
+    category: 'Python',
+    githubLink: 'https://github.com/anuj-cs16/library-management-system',
+    liveLink: '',
+    featured: true,
+  },
+  {
+    _id: '8',
+    title: 'Python Course & Automation Suite',
+    description: 'Comprehensive suite of 50+ modular Python algorithms, data structure implementations, automation scripts, web scrapers, and GUI utility tools.',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop',
+    techStack: ['Python', 'OOP', 'Data Structures', 'Automation'],
+    category: 'Python',
+    githubLink: 'https://github.com/anuj-cs16/Python-course',
+    liveLink: '',
+    featured: false,
+  },
+];
+
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState(fallbackProjects);
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -16,9 +107,11 @@ const Projects = () => {
     const fetchProjects = async () => {
       try {
         const res = await API.get('/projects');
-        setProjects(res.data);
+        if (res.data && Array.isArray(res.data) && res.data.length > 0) {
+          setProjects(res.data);
+        }
       } catch (err) {
-        console.error('[Projects] Error fetching projects:', err);
+        console.warn('[Projects] Backend not connected, using fallback repository list:', err.message);
       } finally {
         setLoading(false);
       }

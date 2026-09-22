@@ -5,18 +5,30 @@ import { FaBriefcase, FaBuilding, FaMapMarkerAlt, FaCalendarAlt, FaCheck, FaExte
 const Experience = () => {
   const experiences = [
     {
-      role: 'Lead Software Engineer',
+      role: 'Forward Deployed Engineer',
       company: 'Forge Web',
       location: 'Faridabad, Haryana, India',
       period: 'Feb 2024 – Present',
-      description: 'Delivered web development and software automation solutions tailored for local SMBs and client businesses.',
+      description: 'Embedded directly within client environments to architect, engineer, and deploy high-impact full-stack web software, custom API integrations, and business automation systems.',
       highlights: [
-        'Developed custom full-stack solutions, client portfolios, and relational database systems.',
-        'Serviced 6 business clients end-to-end with high satisfaction and zero downtime.',
-        'Developed custom WhatsApp automation tools & lead generation web applications.',
-        'Managed client requirement gathering, full-stack architectural design, and deployment pipelines.',
+        'Deployed directly on-site with 6+ business clients to gather technical requirements, architect custom MERN stack solutions, and execute production launches with zero downtime.',
+        'Engineered custom WhatsApp API automation systems and lead generation web portals, significantly increasing client operational throughput and user conversion.',
+        'Managed end-to-end SDLC — from rapid prototyping and relational schema design to cloud deployment pipelines and live client support.',
       ],
-      tags: ['React', 'Node.js', 'MongoDB', 'MySQL', 'WhatsApp API', 'Express'],
+      tags: ['Forward Deployment', 'React', 'Node.js', 'MongoDB', 'WhatsApp API', 'System Architecture'],
+    },
+    {
+      role: 'Full-Stack Web Developer',
+      company: 'Freelance & Client Servicing',
+      location: 'Remote / Hybrid',
+      period: '2023 – Present',
+      description: 'Delivered production web platforms, API infrastructure, and custom business portals for client organizations.',
+      highlights: [
+        'Developed end-to-end full-stack applications with React, Node.js, and MongoDB.',
+        'Built automated email notification triggers and secure payment integrations.',
+        'Optimized site speed and backend queries for seamless user experience.',
+      ],
+      tags: ['React', 'Node.js', 'MongoDB', 'Express', 'TailwindCSS'],
     },
   ];
 
