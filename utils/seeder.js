@@ -6,9 +6,9 @@ const Project = require('../models/Project');
 const initialProjects = [
   {
     title: 'NEXUS — Autonomous AI Engineer',
-    description: 'Autonomous, local-first AI software engineer desktop peer executing planning, AST parsing, automated test runs, Docker sandboxing, and code review with Ollama models.',
+    description: 'Autonomous, local-first AI software engineer desktop peer executing planning, AST parsing, automated test runs, Docker sandboxing, and code review with AI models.',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
-    techStack: ['Tauri v2', 'Next.js 15', 'FastAPI', 'Python', 'Ollama', 'SQLite-vec', 'Docker'],
+    techStack: ['Next.js 15', 'FastAPI', 'Python', 'SQLite', 'Docker'],
     category: 'Full-Stack',
     githubLink: 'https://github.com/anuj-cs16/NEXUS',
     liveLink: '',

@@ -14,13 +14,13 @@ const Skills = () => {
       ],
     },
     {
-      category: 'Frontend & Desktop',
+      category: 'Frontend Development',
       icon: FaDesktop,
       skills: [
         { name: 'React.js / Next.js', level: 95 },
         { name: 'Tailwind CSS', level: 100 },
         { name: 'HTML5 & CSS3', level: 100 },
-        { name: 'Tauri v2', level: 85 },
+        { name: 'Bootstrap / EJS', level: 90 },
       ],
     },
     {
@@ -29,7 +29,7 @@ const Skills = () => {
       skills: [
         { name: 'Node.js & Express', level: 85 },
         { name: 'FastAPI / Python', level: 85 },
-        { name: 'RESTful APIs & Auth', level: 90 },
+        { name: 'RESTful APIs', level: 90 },
       ],
     },
     {
@@ -38,14 +38,13 @@ const Skills = () => {
       skills: [
         { name: 'MongoDB', level: 85 },
         { name: 'MySQL', level: 85 },
-        { name: 'SQLite & Vector DBs', level: 80 },
+        { name: 'SQLite', level: 85 },
       ],
     },
     {
       category: 'AI-Assisted Engineering',
       icon: FaRobot,
       skills: [
-        { name: 'Ollama & Local LLMs', level: 95 },
         { name: 'Antigravity / Claude Opus / Agentic Workflows', level: 100 },
       ],
     },
